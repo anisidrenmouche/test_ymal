@@ -1,0 +1,5 @@
+App\Entity\User:
+    user_{1..20}:
+        nom: <lastname()>
+        prenom: <firstname()>
+        age: <numberBetween(16, 80)>
