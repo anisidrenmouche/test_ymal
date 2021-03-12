@@ -1,0 +1,20 @@
+array_tests:
+    nom: marion
+    prenom: durouge
+    age: 36
+POST:
+    method: POST
+    url: /api/users
+    data:
+        nom: McClure
+        prenom: Monty
+        age: 76
+    statut: 201    
+GET:
+    method: GET
+    url: /api/users
+    data:
+        nom: Aurelie
+        prenom: Gipsy
+        age: 14
+    statut: 200
