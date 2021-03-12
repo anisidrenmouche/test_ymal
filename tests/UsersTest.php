@@ -81,7 +81,7 @@ class UsersTest extends ApiTestCase
         );
     }
 
-    public function testGetUser(): void
+    public function testUser(): void
     {
         // go to fichier yml
         $tests = Yaml::parseFile('tests/users_tests_plus.yaml');
@@ -97,7 +97,8 @@ class UsersTest extends ApiTestCase
             $this->assertResponseIsSuccessful();
             // attente de la bonne reponse pour confirmation du POST ou GET
             $this->assertResponseStatusCodeSame($test['statut']);
-            // $this->assertJsonContains($test['jsonResponse']);
+            // verification du contenu de reponse
+            $this->assertJsonContains($test['jsonResponse']);
         }
     }
 }

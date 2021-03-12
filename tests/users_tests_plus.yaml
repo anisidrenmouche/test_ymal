@@ -5,7 +5,13 @@ POST:
         nom: Aurelie
         prenom: Bibi
         age: 12
-    statut: 201    
+    statut: 201
+    jsonResponse:
+        "@context": "/api/contexts/User"
+        "@type": "User"
+        nom: Aurelie
+        prenom: Bibi
+        age: 12
 GET:
     method: GET
     url: /api/users/1
@@ -14,3 +20,10 @@ GET:
         prenom: Monty
         age: 76
     statut: 200
+    jsonResponse:
+        "@context": "/api/contexts/User"
+        "@id": "/api/users/1"
+        "@type": "User"
+        nom: McClure
+        prenom: Monty
+        age: 76
