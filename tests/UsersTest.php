@@ -80,4 +80,24 @@ class UsersTest extends ApiTestCase
             static::$container->get('doctrine')->getRepository(User::class)->findOneBy(['nom' => $valuename ["array_tests"]["nom"]])
         );
     }
+
+    public function testGetUser(): void
+    {
+        // go to fichier yml
+        $tests = Yaml::parseFile('tests/users_tests_plus.yaml');
+        // http client
+        $client = static::createClient();
+
+        // boucle pour aler chercher les infos de tests
+        foreach ($tests as $test) {
+            // recuperer les infos
+            // 1er parametre la methode, le secondc'est l'URL, et le 3eme parametre c'est les données
+            $client->request($test['method'], $test['url'], ['json' => $test['data']]);
+            // attente d'une reponse...
+            $this->assertResponseIsSuccessful();
+            // attente de la bonne reponse pour confirmation du POST ou GET
+            $this->assertResponseStatusCodeSame($test['statut']);
+            // $this->assertJsonContains($test['jsonResponse']);
+        }
+    }
 }

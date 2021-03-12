@@ -1,0 +1,16 @@
+POST:
+    method: POST
+    url: /api/users
+    data:
+        nom: Aurelie
+        prenom: Bibi
+        age: 12
+    statut: 201    
+GET:
+    method: GET
+    url: /api/users/1
+    data:
+        nom: McClure
+        prenom: Monty
+        age: 76
+    statut: 200
