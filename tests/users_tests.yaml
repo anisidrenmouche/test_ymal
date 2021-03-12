@@ -2,3 +2,11 @@ array_tests:
     nom: marion
     prenom: durouge
     age: 36
+POST_ERROR:
+    method: POST
+    url: /api/users
+    data:
+        nom: 
+        prenom: Killian
+        age: 24
+    statut: 400

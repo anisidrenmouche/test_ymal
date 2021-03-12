@@ -99,6 +99,16 @@ class UsersTest extends ApiTestCase
             $this->assertResponseStatusCodeSame($test['statut']);
             // verification du contenu de reponse
             $this->assertJsonContains($test['jsonResponse']);
+            // verifie la concordance du schema json et l'entité
+            $this->assertMatchesResourceItemJsonSchema(User::class);
         }
+    }
+
+    public function testError(): void
+    {
+        $testsfalse = Yaml::parseFile('tests/users_tests.yaml');
+        $client = static::createClient();
+        $client->request($testsfalse['POST_ERROR']['method'], $testsfalse['POST_ERROR']['url'], ['json' => $testsfalse['POST_ERROR']['data']]);
+        $this->assertResponseStatusCodeSame($testsfalse['POST_ERROR']['statut']);
     }
 }
